@@ -27,3 +27,5 @@ Order of operations to create + deploy a new app
 - Things that aren't yet clear are the role of postgres on your local computer and what configuring I need to do with the env variable $PORT. I could start from scratch, or try and figure out what's wrong with the current app, which I think will be beneficial overall for my understanding of how things work.
 
 Ok goodbye. It shouldn't take me 3 hours to deploy something from scratch. Especially using Rails.
+
+Well, somehow it worked. I just sent the thing up into the heroku universe and... it built. So. That's good. 
