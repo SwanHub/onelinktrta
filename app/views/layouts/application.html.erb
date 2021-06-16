@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Onelinktrta</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <br>
+    <%= yield %>
+    <p>Hi Elena. We're up and running on a local computer. This will get written on every page at the bottom.</p>
+    <a href="https://frame240.com/">One link to rule them all.</a>
+  </body>
+</html>
