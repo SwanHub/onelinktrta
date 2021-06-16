@@ -9,3 +9,4 @@ Thing I re-learned about coding while doing this:
 
 * Small things like the difference between '<% yield %>' and '<%= yield %>' are crucial to success as a developer. Attention to detail. In the above case, either everything appears or nothing appears. Quite a difference.
 
+* 2FA introduces a new set of authentication issues that likewise took some time to figure out. Finally, though, we've hooked up our repo to github.
