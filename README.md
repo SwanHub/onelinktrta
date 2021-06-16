@@ -26,4 +26,4 @@ Order of operations to create + deploy a new app
 - Heroku has 10 different things it wants you to do to setup existing applications. Follow their detailed instructions, which include creating a random instructional called a Procfile. 
 - Things that aren't yet clear are the role of postgres on your local computer and what configuring I need to do with the env variable $PORT. I could start from scratch, or try and figure out what's wrong with the current app, which I think will be beneficial overall for my understanding of how things work.
 
-Ok goodbye. Fuck you code. It shouldn't take me 3 hours to deploy something from scratch. Especially using Rails.
+Ok goodbye. It shouldn't take me 3 hours to deploy something from scratch. Especially using Rails.
