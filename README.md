@@ -29,3 +29,32 @@ Order of operations to create + deploy a new app
 Ok goodbye. It shouldn't take me 3 hours to deploy something from scratch. Especially using Rails.
 
 Well, somehow it worked. I just sent the thing up into the heroku universe and... it built. So. That's good. 
+
+We're back in it.... Next step is to link this baby to a database. Imagined steps: 
+ 
+- Initialize a database (local) 
+- Initiatize tables (local)
+- Initialize & migrate tables in heroku production. 
+- Access the console. 
+- Seed with all the correct data. 
+    The correct data, Table Links:
+        - link:string 
+        - postDate: date
+        - timestamps
+        - title:string (may or may not use)
+    (optional) The correct data, Table TagsLinks:
+        - FK:link
+        - FK:tag
+        - timestamps
+    (optional) The correct data, Table Tags: 
+        - tagName:string
+        - timestamps
+
+- The above will give me step 1) a list of links postable by date and 2) the possibility of tagging.
+    Example tags: 
+        - Subject matter (horse, animal, education, niche)
+        - Media type (video, article, interactive, twitter thread)
+        - Website (YouTube, Reddit, independent, etc.)
+
+
+With all that info, you can create a pretty nice little system. Fairly robust. Just need to figure out how to do this database migration. Going to read a few articles first. At the moment, just looking at the Rails Heroku page and the Rails Getting Started page. The Getting started page is optimized for a local environment so just want to be sure. Medium article time.
