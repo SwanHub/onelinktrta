@@ -58,3 +58,12 @@ We're back in it.... Next step is to link this baby to a database. Imagined step
 
 
 With all that info, you can create a pretty nice little system. Fairly robust. Just need to figure out how to do this database migration. Going to read a few articles first. At the moment, just looking at the Rails Heroku page and the Rails Getting Started page. The Getting started page is optimized for a local environment so just want to be sure. Medium article time.
+
+- Okay... so interesting. Just remembering the flow of things and what's required when doing database stuff. You start by creating a migration file. `rails generate model Link name:string` etc
+- BUT I forgot that the table name is supposed to be plural.
+- Wait wait wait no I did it correctly. You generate with singular in the terminal and then rails automatically get you ready to migrate in a plural table.
+- Creating a join table `https://dev.to/neshaz/join-table-in-rails-23b5`
+- And a little bit of this `https://stackoverflow.com/questions/17765249/generate-migration-create-join-table`
+
+
+- Okay, I went ahead and generated three models. The models will connect to three tables. The ones outlined above. Models were created. I had to manually modify them to add the joining relationship (`has_many` and `belongs_to`). And three migration files were automatically created. Next up is migrating all these bad boys in Heroku.
