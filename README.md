@@ -106,3 +106,4 @@ From: https://stackoverflow.com/questions/23233414/heroku-how-to-push-seeds-rb-t
 And: https://ninjadevel.com/seeding-database-ruby-on-rails/
 
 - Fun, fun. I seeded everything with `date` instead of `postDate` for each Link. Attempt #2 let's go.
+- okay, so things have deployed to heroku. Now time to seed this baby.

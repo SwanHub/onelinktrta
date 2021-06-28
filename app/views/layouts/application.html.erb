@@ -13,7 +13,7 @@
   <body>
     <br>
     <%= yield %>
-    <% @links.each do |link| %>
+    <% @links.reverse.each do |link| %>
       <a target="_blank" href=<%= link.url %>> <%= link.postDate %></a><br>
     <% end %>
   </body>
