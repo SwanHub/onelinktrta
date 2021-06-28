@@ -13,19 +13,9 @@
   <body>
     <br>
     <%= yield %>
-
-    ><a target="_blank" href="https://www.susanrigetti.com/physics"> june 27 2021</a><br>
-    <a target="_blank" href="https://youtu.be/NgjmISsxsMI">june 26 2021</a><br>
-    <a target="_blank" href="https://youtu.be/IvUU8joBb1Q">june 25 2021</a><br>
-    <a target="_blank" href="http://links.net/vita/">june 24 2021</a><br>
-    <a target="_blank" href="https://www.youtube.com/watch?v=Py805hYfopw">june 23 2021</a><br>
-    <a target="_blank" href="https://www.youtube.com/watch?v=UGUu7qhGh_k">june 22 2021</a><br>
-    <a target="_blank" href="https://www.lightnote.co/">june 21 2021</a><br>
-    <a target="_blank" href="https://jgthms.com/web-design-in-4-minutes/">june 20 2021</a><br>
-    <a target="_blank" href="https://patrickcollison.com/fast">june 19 2021</a><br>
-    <a target="_blank" href="https://vimeo.com/58659769">june 18 2021</a><br>
-    <a target="_blank" href="https://youtu.be/dNJdJIwCF_Y">june 17 2021</a><br>
-    <a target="_blank" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">june 16 2021</a><br>
+    <% @links.each do |link| %>
+      <a target="_blank" href=<%= link.url %>> <%= link.postDate %></a><br>
+    <% end %>
   </body>
 </html>
 
@@ -36,3 +26,15 @@
 <%# https://worksinprogress.co/ %>
 <%# https://docs.google.com/presentation/d/1kSuQyW5DTnkVaZEjGYCkfOxvzCqGEFzWBy4e9Uedd9k/preview?imm_mid=0f9b7e&cmp=em-data-na-na-newsltr_20171213&slide=id.g183f28bdc3_0_90 %>
 <%# https://www.youtube.com/watch?v=s92Q9AuL2Eo %>
+
+<%# <a target="_blank" href="https://youtu.be/NgjmISsxsMI">june 26 2021</a><br>
+    <a target="_blank" href="https://youtu.be/IvUU8joBb1Q">june 25 2021</a><br>
+    <a target="_blank" href="http://links.net/vita/">june 24 2021</a><br>
+    <a target="_blank" href="https://www.youtube.com/watch?v=Py805hYfopw">june 23 2021</a><br>
+    <a target="_blank" href="https://www.youtube.com/watch?v=UGUu7qhGh_k">june 22 2021</a><br>
+    <a target="_blank" href="https://www.lightnote.co/">june 21 2021</a><br>
+    <a target="_blank" href="https://jgthms.com/web-design-in-4-minutes/">june 20 2021</a><br>
+    <a target="_blank" href="https://patrickcollison.com/fast">june 19 2021</a><br>
+    <a target="_blank" href="https://vimeo.com/58659769">june 18 2021</a><br>
+    <a target="_blank" href="https://youtu.be/dNJdJIwCF_Y">june 17 2021</a><br>
+    <a target="_blank" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">june 16 2021</a><br> %>

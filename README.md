@@ -90,4 +90,19 @@ OKAY NEXT PHASE, display the data.
 - Then going to reach inside that thing and pull out the url in views, I suppose. Interesting how the views handles an OBJECT. Seems like a bit of magic going on there.
 - Okay, I've added this `<%= first_link.url %>` to my index page. Let's see what happens. Theoretically, this should work! 
 - Nope... got over excited. It does not work. It compiled. Reloaded the page... then nothing.
-here's the error message `at=info method=GET path="/" host=onelinktrta.herokuapp.com request_id=a08bb9d7-19aa-4dc6-9152-23a9878dce4e fwd="72.130.33.132" dyno=web.1 connect=1ms service=137ms status=500 bytes=1827 protocol=https` Which to me means I requested the page and there was a server error (500)... but nothing is specified. Ah, I see... I think. I didn't add `@`
+here's the error message `at=info method=GET path="/" host=onelinktrta.herokuapp.com request_id=a08bb9d7-19aa-4dc6-9152-23a9878dce4e fwd="72.130.33.132" dyno=web.1 connect=1ms service=137ms status=500 bytes=1827 protocol=https` Which to me means I requested the page and there was a server error (500)... but nothing is specified. Ah, I see... I think. I didn't add `@` before first link above. But i'm not sure why that would constitue an issue? Maybe `Link.find(1)` isnt' correct? I did go off script there. 
+
+- From the rails site: `The <%= %> tag means "evaluate the enclosed Ruby code, and output the value it returns."` So I'm assuming that the enclosed Ruby code just couldn't be evaluated without the `@`... Let's hope. 
+
+- That was it! 
+
+Alright, we've now displayed data from a database hosted by Heroku!
+
+Now it'd be great to seed this thing with the correct data and display each link properly. Shouldn't be too hard.
+
+Seeding a rails database is not part of the "getting started" article.
+- `heroku run rake db:seed`
+From: https://stackoverflow.com/questions/23233414/heroku-how-to-push-seeds-rb-to-existing-rails-app
+And: https://ninjadevel.com/seeding-database-ruby-on-rails/
+
+
