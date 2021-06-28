@@ -105,4 +105,4 @@ Seeding a rails database is not part of the "getting started" article.
 From: https://stackoverflow.com/questions/23233414/heroku-how-to-push-seeds-rb-to-existing-rails-app
 And: https://ninjadevel.com/seeding-database-ruby-on-rails/
 
-
+- Fun, fun. I seeded everything with `date` instead of `postDate` for each Link. Attempt #2 let's go.
