@@ -238,4 +238,4 @@ Okay, interesting. I think I named things incorrectly. Here's the error I'm gett
 
 Oh GOD. I have to rename things. What a pain.
 
-Okay I'm adding `class: LinkTag` to specify things... hopefully that works. 
+Okay I'm adding `class: LinkTag` to specify things... hopefully that works. pushed that up to main. Awaiting the verdict. `heroku run rails console`
