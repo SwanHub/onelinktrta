@@ -107,3 +107,135 @@ And: https://ninjadevel.com/seeding-database-ruby-on-rails/
 
 - Fun, fun. I seeded everything with `date` instead of `postDate` for each Link. Attempt #2 let's go.
 - okay, so things have deployed to heroku. Now time to seed this baby.
+
+
+Alright... what's done is done. I ended up displaying them in the wrong chronological order. Add a little `.reverse` method and we're golden. I also like that the new formatting is of type `2021-06-12` as opposed to `june 12 2021` –– that'll be better categorization long-term.
+
+Adding a new day to the mix... 
+
+`Link.create([{url: 'https://nandgame.com/', description: 'learn to build a computer from scratch', postDate: Date.parse('2021-06-29')}])`
+
+
+Final step: connect a domain.
+We'll do `swanl.industries/onelinktrta`
+
+`www.swan.industries`
+
+https://nikodunk.com/heroku-ssl-google-domains-2019/
+
+https://devcenter.heroku.com/articles/custom-domains
+
+Okay, so briefly I think it worked. But the article above hath led me astray. Heroku article assumes some knowledge of things, which I don't have. Tomorrow, need to do a review of DNS actions, what they mean, how they work, etc.
+
+The next step here is to add a domain. 
+
+Question: do I add an "admin" side after that which allows me to add more links without going to heroku console? Would be nice and relevant to re-explore POST requests. 
+
+A reminder that is interesting: you don't need to pay to hook up a domain to your website. Not with Heroku at least. Not sure what Webflow's deal is -- I have a sense that they make you pay to hook up a custom domain and push code out to prod. But with Heroku (and Aspect for that matter, although the whole thing is unpaid), you hook up a custom domain for free.
+
+What does it mean to "hook up a custom domain"? 
+1. Buy a custom domain. I use Google Domains. GoDaddy and Google are probably the most common domain marketplaces.
+2. Generate a pointer on Heroku. This is where the code is stored. Tell the custom domain (when someone tries to GET it) to go to the Heroku pointer location. This is all done in the "custom resources" section using CNAME, etc.
+
+
+# Hooking up a custom domain
+
+I followed Niko's steps (1) and (2). I'm left with a few promising clues. 
+1. The error message on Google has changed when I try to access www.swan.industries: This site can’t provide a secure connection. www.swan.industries sent an invalid response.
+2. And in "Websites" I see a preview of the actual site I'm supposed to see when I type in www.swan.industries.
+
+I'll try to follow through with step 3, although last night it didn't work. I wonder if at this stage it's just a matter of time. The "It could take up to 48hrs for X to take effect" msg.
+
+I feel like theoretically, you shouldn't need a domain forwarding system at this stage. If the CNAME for www goes to the `heroku` pointer I've created, then that'll all we really need... If these further steps in 3 don't work then I'll just wait a few hours and see what happens. Can do join table tags in the meantime.
+
+Checking to see the status of things at: 
+- `heroku domains`
+- Domain Name         DNS Record Type DNS Target                                             SNI Endpoint 
+www.swan.industries CNAME           [redacted].herokudns.com undefined
+
+- What is SNI endpoint?
+
+Alright, I followed the directions in the article.
+
+I need Heroku free tier to do this step `heroku certs:auto:refresh` – BUT that shouldn't be an issue. Heroku allows custom domains on the free tier. (see pricing)
+
+An issue is now there is now website preview visibly available in my Google Domains dashboard. Sad because this part is so easy with Aspect. Why Heroku causing issues? Probably Tshepo is running a much simpler operation. No need of complex DNS targeting. Just send it all to one spot 
+
+Well, evidently that article does not help. I'll now try going through Heroku's guide.  https://devcenter.heroku.com/articles/custom-domains
+1. Verified my account.
+--
+1. (DONE) Confirm that you own the custom domain name. You can buy a custom domain name with a domain registration service.
+2. Add the custom domain to your app with the heroku domains:add command.
+3. Look up the Heroku-supplied DNS target for the custom domain using the heroku domains command.
+4. Configure your app’s DNS provider to point to the Heroku-supplied DNS target.
+5. Confirm that your app is accessible via the custom domain. There might be a delay while DNS changes propagate.
+
+
+Ah, interesting note about Heroku. It's not a static IP address like it is with Aspect. So you're pointing at a thing that is shifting on Heroku's side. Whereas with Aspect, we just all pointed at the single IP address of whatever Tshepo's got going on over there.
+
+I removed email forwarding in accordance with Heroku neglecting to include that in their docs. I should just be able to point the subdomain to the moving Heroku DNS target.
+
+I removed the trailing `.` - maybe that'll do it.
+
+```The trailing . on the target domain may or may not be required, depending on your DNS provider.```
+
+Checking to see if the "host as propogated" `host www.swan.industries`
+
+Things seem to be correctly linked for the site `www.swan.industries` Reason beings:
+- On "Website preview" in my Google domains manager, I see onelinktrta. 
+- If I type in `heroku domains` I get a seemingly correct readout. 
+- If I type `host www.swan.industries` I get the correct readout: 
+```www.swan.industries is an alias for obscure-peafowl-f358aftlaf82dbw42zc6qx61.herokudns.com.```
+
+Thoughts: 
+- It might just take a day or two for this thing to work (though that would be odd given my past experiences with CNAMEs). Then I'll refresh everything 
+- maybe I'm missing a `.` somewhere? Like is the trailing dot an issue on Google's end?
+
+Ahhh I see what's going on. Scrolling through Heroku settings, the site is supposed to be visible at http://www.swan.industries. No SSL. 
+
+I'm going to enter the paid tier of Heroku $7/mo so I can get automatic SSL?
+
+This guy's got it going on: https://stackoverflow.com/questions/67243264/heroku-with-lets-encrypt-couldnt-find-that-sni-endpoint.
+
+To make some room in my budget, I just got rid of domain `datatrust.wiki` for $28/yr. 
+
+So I have 2 options: 
+- I can upgrade to paid tier for $7/mo.
+- Or I can go through Let's Encrypt myself. And maybe even answer this guys question above if I make it out the other side. Let's do Let's Encrypt.
+PS. It is definitely the "SNI Endpoint" undefined that is tripping things up.
+
+# Let's Encrypt
+
+- Great. Heroku is partial. https://certbot.eff.org/hosting_providers. 
+
+OKAY. I just looked up the site on my phone and it is INDEED accessible on the internet. But SSL is NOT setup yet. Neither is the correct forwarding. We're moving forward.
+
+So now it's confirmed that I can either a) setup Heroku or b) go through things manually with certbot. Let's do certbot.
+
+Reading this https://medium.com/@bantic/free-tls-with-letsencrypt-and-heroku-in-5-minutes-807361cca5d3
+
+And not immediately able to grok the documentation, I'm inclined to just pay.
+
+Super interesting / conflicting / annoying that I can use a custom domain but in order for that domain to have SSL certification
+
+Still curious about the SSL. Is it necessarily a paid thing? This article suggests not: https://sslrenewals.com/blog/difference-between-free-ssl-certificate-and-paid-ssl-certificate and there is a "manual configuration" process on Heroku I can go through.
+
+https://devcenter.heroku.com/articles/ssl
+
+Alright, I'm going to just pay. You win, Salesforce. BUT I'm going to do that at the end. Let's move on to other things.
+
+Will need this at that point: https://devcenter.heroku.com/articles/automated-certificate-management
+
+# Tags (join table)
+
+Seed a bunch of tags... (did this directly in the rails console, but could've seeded.)s
+
+Tag.create([{tagName: 'learn'}, {tagName: 'video'}, {tagName: 'text'}])
+LinkTag.create({link_id: 1, tag_id: 2})
+
+Okay, interesting. I think I named things incorrectly. Here's the error I'm getting: 
+`uninitialized constant Link::Linktag (NameError)` So let's change that. Because it's not picking up that there's a table called LinkTag.
+
+Oh GOD. I have to rename things. What a pain.
+
+Okay I'm adding `class: LinkTag` to specify things... hopefully that works. 
