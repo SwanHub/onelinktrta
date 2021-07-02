@@ -14,12 +14,17 @@
  *= require_self
  */
 
- body { 
-    padding-left: 30px;
- }
+body { 
+padding-left: 30px;
+}
 
- h2 {
-    padding: 0px;
-    margin-top: 0px;
-    margin-bottom: 5px;
- }
+h2 {
+padding: 0px;
+margin-top: 0px;
+margin-bottom: 5px;
+}
+
+.navigation {
+    font-size: 10px;
+    padding: 3px;
+}
