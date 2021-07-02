@@ -18,7 +18,7 @@
 # links = Link.create([{url: 'https://youtu.be/NgjmISsxsMI', description: 'horse hoof restoration', postDate: Date.parse('2021-06-26')}])
 # links = Link.create([{url: 'https://www.susanrigetti.com/physics', description: 'so you want to learn physics', postDate: Date.parse('2021-06-27')}]
 
-# Link.create({url: '', description: '', postDate: Date.parse('2021-07-01')})
+# Link.create({url: 'https://learningsynths.ableton.com/', description: 'learning synths', postDate: Date.parse('2021-07-01')})
 
 # could make these all icons and that would solve.
 
@@ -26,26 +26,26 @@
 # 2 - video 
 # 3 - text 
 # 4 - audio 
-# 5 - game
+# 5 - game 
 
-Link.find(4).linktags.create(tag_id: 1)
-Link.find(4).linktags.create(tag_id: 3)
-Link.find(5).linktags.create(tag_id: 1)
-Link.find(5).linktags.create(tag_id: 3)
-Link.find(5).linktags.create(tag_id: 5)
-Link.find(6).linktags.create(tag_id: 1)
-Link.find(6).linktags.create(tag_id: 4)
-Link.find(6).linktags.create(tag_id: 5)
-Link.find(7).linktags.create(tag_id: 2)
-Link.find(8).linktags.create(tag_id: 2)
-Link.find(9).linktags.create(tag_id: 3)
-Link.find(10).linktags.create(tag_id: 2)
-Link.find(11).linktags.create(tag_id: 1)
-Link.find(11).linktags.create(tag_id: 2)
-Link.find(12).linktags.create(tag_id: 1)
-Link.find(12).linktags.create(tag_id: 3)
-Link.find(13).linktags.create(tag_id: 1)
-Link.find(13).linktags.create(tag_id: 2)
-Link.find(14).linktags.create(tag_id: 1)
-Link.find(14).linktags.create(tag_id: 5)
-Link.find(15).linktags.create(tag_id: 2)
+# Link.find(4).linktags.create(tag_id: 1)
+# Link.find(4).linktags.create(tag_id: 3)
+# Link.find(5).linktags.create(tag_id: 1)
+# Link.find(5).linktags.create(tag_id: 3)
+# Link.find(5).linktags.create(tag_id: 5)
+# Link.find(6).linktags.create(tag_id: 1)
+# Link.find(6).linktags.create(tag_id: 4)
+# Link.find(6).linktags.create(tag_id: 5)
+# Link.find(7).linktags.create(tag_id: 2)
+# Link.find(8).linktags.create(tag_id: 2)
+# Link.find(9).linktags.create(tag_id: 3)
+# Link.find(10).linktags.create(tag_id: 2)
+# Link.find(11).linktags.create(tag_id: 1)
+# Link.find(11).linktags.create(tag_id: 2)
+# Link.find(12).linktags.create(tag_id: 1)
+# Link.find(12).linktags.create(tag_id: 3)
+# Link.find(13).linktags.create(tag_id: 1)
+# Link.find(13).linktags.create(tag_id: 2)
+# Link.find(14).linktags.create(tag_id: 1)
+# Link.find(14).linktags.create(tag_id: 5)
+# Link.find(15).linktags.create(tag_id: 2)

@@ -250,8 +250,16 @@ Unitialized constant error in Ruby: https://www.thoughtco.com/nameerror-uninitia
 
 Nice. It now also is displayed on the web. 
 
-
 Shortcut to making new join table entries: 
 `Link.find(x).linktags.create(tag_id: y)`
 Will use this now to seed.
+
+I want to change the meaning of the tag "learn" to be *you actually learn a skill by the end of it* not just "I've seen something new" or "I'm reading new knowledge"... 
+
+`LinkTag.find(x).destroy` – about to do a few of these in the console.
+Thanks Stack Overflow: https://stackoverflow.com/questions/7069221/delete-a-record-from-console-ruby-on-rails
+
+Finding all tags for a particular link id: `LinkTag.where(link_id: xy)`
+
+Alright, all of the tags are appropriately displaying.
 
