@@ -14,7 +14,12 @@
     <br>
     <%= yield %>
     <% @links.reverse.each do |link| %>
-      <a target="_blank" href=<%= link.url %>> <%= link.postDate %></a><br>
+      <a target="_blank" href=<%= link.url %>> <%= link.postDate %></a>
+        <% link.tags.each do |tag| %>
+          <span><%=tag.tagName%></span>
+        <% end %>
+      <br>
+      
     <% end %>
   </body>
 </html>

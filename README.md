@@ -239,3 +239,11 @@ Okay, interesting. I think I named things incorrectly. Here's the error I'm gett
 Oh GOD. I have to rename things. What a pain.
 
 Okay I'm adding `class: LinkTag` to specify things... hopefully that works. pushed that up to main. Awaiting the verdict. `heroku run rails console`
+
+BOOM. It's working. Tested with: 
+
+`first = Link.first`
+`first.linktags`
+`first.tags`
+
+Unitialized constant error in Ruby: https://www.thoughtco.com/nameerror-uninitialized-2907928
