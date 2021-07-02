@@ -320,3 +320,19 @@ I know I shouldn't be processing all this on the front. These methods should be 
 
 Lol the app crashed. Okay, clearly I can't evaluate things on the front end. Need to put things away in controllers.
 
+Okay, added this to my controller:
+```
+@video_objects = []
+LinkTag.where(tag_id: 2).each do |vlink|
+    @video_objects.push(Link.find(vlink.link_id))
+end
+```
+
+And this to my html:
+```
+<% @video_objects.reverse.each do |video_object| %>
+      <a target="_blank" href=<%= video_object.url %>> <%= video_object.postDate %></a>&nbsp <span style="font-size:10px;"><%= video_object.description %></span>
+    <% end %>
+```
+
+
