@@ -14,12 +14,16 @@
     <br>
     <%= yield %>
     <% @links.reverse.each do |link| %>
-      <a target="_blank" href=<%= link.url %>> <%= link.postDate %>&nbsp-&nbsp</a><%= link.description %>
-        <span>
-        <% link.tags.each do |tag| %>
-          <%=tag.tagName%>&nbsp
+      <a target="_blank" href=<%= link.url %>> <%= link.postDate %></a>&nbsp <span style="font-size:10px;"><%= link.description %></span>
+        
+        <% if false%>
+          code to comment
         <% end %>
-        </span>
+        <%# <span> %>
+        <%# <% link.tags.each do |tag| %>
+          <%# <%=tag.tagName %>
+        <%# <% end %>
+        <%# </span> %>
       <br>
       
     <% end %>

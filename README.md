@@ -263,3 +263,20 @@ Finding all tags for a particular link id: `LinkTag.where(link_id: xy)`
 
 Alright, all of the tags are appropriately displaying.
 
+In the interest of creating something simplified, I'm going to stop rendering tags alongside each entry. Each entry should be unique. These tags are classifiers. They should be their own categories on the page. I.e. at the top of the page, or bottom, you click "game" or "learn" and it auto-sorts to that.
+
+Removing the tags for now, then we'll 
+
+Next steps until I feel like we'll have a pretty decent, basic app pre-JS. 
+1. Category pages. `/video` `/text` etc. 
+2. A home page that only shows one link, then an archive page that shows everything.
+3. Set up testing environment.
+4. Custom domain.
+
+Future add-ons / articles:
+1. Display total clicks for each link with real-time change. 
+2. 3 different style pages. 
+3. Admin page with authentication (Google?) 
+4. Mailer so that people can suggest links to me via email. (which I know absolutely nothing about.)
+
+... you can pretty much get endless with thing. It's my version of a blog. New and links from the web all the time.
