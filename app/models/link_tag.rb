@@ -1,4 +1,4 @@
 class LinkTag < ApplicationRecord
-  belongs_to :link
-  belongs_to :tag
+    belongs_to :link
+    belongs_to :tag
 end

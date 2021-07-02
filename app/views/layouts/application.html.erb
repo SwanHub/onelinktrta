@@ -16,17 +16,23 @@
     <% @links.reverse.each do |link| %>
       <a target="_blank" href=<%= link.url %>> <%= link.postDate %></a>&nbsp <span style="font-size:10px;"><%= link.description %></span>
         
+        <%# comment out %>
         <% if false%>
-          code to comment
+          <span>
+          <% link.tags.each do |tag| %>
+            <%=tag.tagName %>
+          <% end %>
+          </span>          
         <% end %>
-        <%# <span> %>
-        <%# <% link.tags.each do |tag| %>
-          <%# <%=tag.tagName %>
-        <%# <% end %>
-        <%# </span> %>
       <br>
-      
     <% end %>
+
+<br><br><br><br>
+  <% LinkTag.where(tag_id: 2).each do |vlink| %>
+      <a target="_blank" href=<%= Link.find(vlink.link_id).url %>> <%= Link.find(vlink.link_id).postDate %></a>&nbsp <span style="font-size:10px;"><%= Link.find(vlink.link_id).description %></span>
+  <% end %>
+
+
   </body>
 </html>
 

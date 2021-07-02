@@ -270,7 +270,7 @@ Removing the tags for now, then we'll
 Next steps until I feel like we'll have a pretty decent, basic app pre-JS. 
 1. Category pages. `/video` `/text` etc. 
 2. A home page that only shows one link, then an archive page that shows everything.
-3. Set up testing environment.
+3. Set up testing environment. 
 4. Custom domain.
 
 Future add-ons / articles:
@@ -280,3 +280,41 @@ Future add-ons / articles:
 4. Mailer so that people can suggest links to me via email. (which I know absolutely nothing about.)
 
 ... you can pretty much get endless with thing. It's my version of a blog. New and links from the web all the time.
+
+# Creating Routes in Rails
+
+- Conceptually, we're going from routes to controller to sending out a view, which may or may not be relying on a model? Depends on if you're engaging with database. 
+
+Following guidelines here: https://guides.rubyonrails.org/routing.html
+
+Okay, I'm rusty as heck on SQL and that general flow of getting data from the db. What I need to is to get all links that are of a certain category. 
+
+I'm going to go through the join table first to get this info. I'll get an array of values and use those.
+1. In LinkTags, get all values where the id is `2` (video)
+    
+2. Make an array of all of those link_id values. 
+    `video_linktags = LinkTag.where(tag_id: 2)`
+3. One by one, gather all of the links associated in an array.
+
+Where tf do I put the method above?
+
+```
+video_linktags.each do |vl|
+    Link.find(vl.link_id)
+end
+```
+
+And I can make this all one method by doing this: 
+
+LinkTag.where(tag_id: 2).each do |vlink|
+    Link.find(vlink.link_id).url
+end
+
+I know I shouldn't be processing all this on the front. These methods should be kept on the backend... but I am curious to see if it's the right idea. I'll hide it in models in a second.
+
+```
+<% LinkTag.where(tag_id: 2).each do |vlink| %>
+      <a target="_blank" href=<%= Link.find(vlink.link_id).url %>> <%= Link.find(vlink.link_id).postDate %></a>&nbsp <span style="font-size:10px;"><%= Link.find(vlink.link_id).description %></span>
+  <% end %> 
+```
+
