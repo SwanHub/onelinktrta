@@ -247,3 +247,11 @@ BOOM. It's working. Tested with:
 `first.tags`
 
 Unitialized constant error in Ruby: https://www.thoughtco.com/nameerror-uninitialized-2907928
+
+Nice. It now also is displayed on the web. 
+
+
+Shortcut to making new join table entries: 
+`Link.find(x).linktags.create(tag_id: y)`
+Will use this now to seed.
+
