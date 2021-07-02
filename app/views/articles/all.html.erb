@@ -1,0 +1,3 @@
+<% @all_links.reverse.each do |link| %>
+    <a target="_blank" href=<%= link.url %>> <%= link.postDate %></a>&nbsp <span style="font-size:10px;"><%= link.description %></span><br>
+<% end %>

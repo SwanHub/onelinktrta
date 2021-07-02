@@ -1,0 +1,4 @@
+<%# all links with text tag %>
+<% @text_links.reverse.each do |text_link| %>
+    <a target="_blank" href=<%= text_link.url %>> <%= text_link.postDate %></a>&nbsp <span style="font-size:10px;"><%= text_link.description %></span><br>
+<% end %>

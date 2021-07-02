@@ -369,4 +369,10 @@ Fingers crossed that's all we need!
 - A new view page in the articles folder. 
 - A new route in the config file `routes.rb`
 
+Sick! That worked. Okay, okay, okay. This is good.
+
+We'll just copy this code 5 times. One for each category. And the home page will be blank except for the most recent link. This is great. Home stretch of the site features as a whole.
+
+Okay.. loading up all the rest here. Let's see if they work.
+
 

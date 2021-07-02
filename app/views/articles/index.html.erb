@@ -1,6 +1,3 @@
 <%# all links in reverse chronological %>
-
-<% @links.reverse.each do |link| %>
-    <a target="_blank" href=<%= link.url %>> <%= link.postDate %></a>&nbsp <span style="font-size:10px;"><%= link.description %></span><br>
-<% end %>
+<a target="_blank" href=<%= @most_recent_link.url %>> <%= @most_recent_link.postDate %></a>&nbsp <span style="font-size:10px;"><%= @most_recent_link.description %></span><br>
     
