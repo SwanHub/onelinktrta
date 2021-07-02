@@ -1,3 +1,13 @@
+<header>
+    <a href="/today">today</a>
+    <a href="/all">all</a>
+    <a href="/learn">learn</a>
+    <a href="/video">video</a>
+    <a href="/text">text</a>
+    <a href="/audio">audio</a>
+    <a href="/game">game</a>
+</header>
+
 <%# all links with game tag %>
 <% @game_links.reverse.each do |game_link| %>
     <a target="_blank" href=<%= game_link.url %>> <%= game_link.postDate %></a>&nbsp <span style="font-size:10px;"><%= game_link.description %></span><br>

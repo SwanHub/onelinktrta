@@ -1,3 +1,13 @@
+<header>
+    <a href="/today">today</a>
+    <a href="/all">all</a>
+    <a href="/learn">learn</a>
+    <a href="/video">video</a>
+    <a href="/text">text</a>
+    <a href="/audio">audio</a>
+    <a href="/game">game</a>
+</header>
+
 <%# all links with audio tag %>
 <% @audio_links.reverse.each do |audio_link| %>
     <a target="_blank" href=<%= audio_link.url %>> <%= audio_link.postDate %></a>&nbsp <span style="font-size:10px;"><%= audio_link.description %></span><br>

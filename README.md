@@ -375,4 +375,10 @@ We'll just copy this code 5 times. One for each category. And the home page will
 
 Okay.. loading up all the rest here. Let's see if they work.
 
+Ah, I didn't change the logic. Need to go back and pull the correct id from the db.
+
+- Change the db values. (done)
+- Find an interesting way to render the category listings.
+- Remove underline from link. (done)
+
 
