@@ -27,12 +27,6 @@
       <br>
     <% end %>
 
-<br><br><br><br>
-  <% LinkTag.where(tag_id: 2).each do |vlink| %>
-      <a target="_blank" href=<%= Link.find(vlink.link_id).url %>> <%= Link.find(vlink.link_id).postDate %></a>&nbsp <span style="font-size:10px;"><%= Link.find(vlink.link_id).description %></span>
-  <% end %>
-
-
   </body>
 </html>
 

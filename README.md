@@ -318,3 +318,5 @@ I know I shouldn't be processing all this on the front. These methods should be 
   <% end %> 
 ```
 
+Lol the app crashed. Okay, clearly I can't evaluate things on the front end. Need to put things away in controllers.
+
