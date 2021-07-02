@@ -331,8 +331,42 @@ end
 And this to my html:
 ```
 <% @video_objects.reverse.each do |video_object| %>
-      <a target="_blank" href=<%= video_object.url %>> <%= video_object.postDate %></a>&nbsp <span style="font-size:10px;"><%= video_object.description %></span>
+      <a target="_blank" href=<%= video_object.url %>> <%= video_object.postDate %></a>&nbsp <span style="font-size:10px;"><%= video_object.description %></span><br>
     <% end %>
 ```
+
+And that worked. 
+Let's figure out how to create a new route at `/video` that shows just this data. 
+
+Create a new route page.
+
+Adding this info
+```
+def index
+    @first_link = Link.find(1)
+    @links = Link.all  
+  end
+
+  def video
+    @video_objects = []
+
+    LinkTag.where(tag_id: 2).each do |vlink|
+      @video_objects.push(Link.find(vlink.link_id))
+    end
+  end
+```
+
+And created a new page 
+`video.html.erb`
+
+hoping that that's all I need to do 
+I also did this in routes: 
+
+`get "/video", to: "articles#video"`
+
+Fingers crossed that's all we need! 
+- A change to controller (which contains the code to contact our db, I suppose -- although I feel like that should be in model? hmm.)
+- A new view page in the articles folder. 
+- A new route in the config file `routes.rb`
 
 

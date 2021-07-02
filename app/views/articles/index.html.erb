@@ -1,2 +1,6 @@
-<h2>onelinktrt<span style="color:red;">a</span></h2>
-<span>what's good about the internet</span><br><br>
+<%# all links in reverse chronological %>
+
+<% @links.reverse.each do |link| %>
+    <a target="_blank" href=<%= link.url %>> <%= link.postDate %></a>&nbsp <span style="font-size:10px;"><%= link.description %></span><br>
+<% end %>
+    

@@ -1,0 +1,5 @@
+
+
+<% @video_objects.reverse.each do |video_object| %>
+      <a target="_blank" href=<%= video_object.url %>> <%= video_object.postDate %></a>&nbsp <span style="font-size:10px;"><%= video_object.description %></span><br>
+    <% end %>
