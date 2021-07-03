@@ -381,4 +381,63 @@ Ah, I didn't change the logic. Need to go back and pull the correct id from the 
 - Find an interesting way to render the category listings. (done)
 - Remove underline from link in header. (done)
 
+# Setting up a local environment 
 
+1. I hit `heroku local` and received a NoDatabaseError
+2. I went here https://stackoverflow.com/questions/34203765/activerecordnodatabaseerror-fatal-database-db-development-postgresql-does-n and followed the top suggestion. Somehow (not sure how) I already have postgres ready to go on my comp so hitting `rake db:create && rake db:migrate` works.
+3. I hit `heroku local` again and ran into a `NoMethodError in Articles#index` with the key msg being: `undefined method 'url' for nil:NilClass` I'm assuming this just means that the datbase is initialized with nothing in it, so there's no method-ing that can be done. Let's seed the thing.
+4. Uncommented the following in seed.rb:
+
+```
+Link.create([{url: 'https://youtu.be/dNJdJIwCF_Y', description: 'fresh guacamole by PES', postDate: Date.parse('2021-06-17')}])
+Link.create([{url: 'https://patrickcollison.com/fast', description: 'patrick collison fast', postDate: Date.parse('2021-06-18')}])
+Link.create([{url: 'https://jgthms.com/web-design-in-4-minutes/', description: 'web design in 4 minutes', postDate: Date.parse('2021-06-19')}])
+Link.create([{url: 'https://vimeo.com/58659769', description: 'the scared is scared', postDate: Date.parse('2021-06-20')}])
+Link.create([{url: 'https://www.lightnote.co/', description: 'how music works', postDate: Date.parse('2021-06-21')}])
+Link.create([{url: 'https://youtu.be/UGUu7qhGh_k', description: 'when spongebob is life', postDate: Date.parse('2021-06-22')}])
+Link.create([{url: 'https://youtu.be/Py805hYfopw', description: 'clumsy reporter knocks down jenga tower', postDate: Date.parse('2021-06-23')}])
+Link.create([{url: 'http://links.net/vita/', description: 'the first blog on the web, since 1994', postDate: Date.parse('2021-06-24')}])
+Link.create([{url: 'https://youtu.be/IvUU8joBb1Q', description: 'wintergatan marble machine', postDate: Date.parse('2021-06-25')}])
+Link.create([{url: 'https://youtu.be/NgjmISsxsMI', description: 'horse hoof restoration', postDate: Date.parse('2021-06-26')}])
+Link.create([{url: 'https://www.susanrigetti.com/physics', description: 'so you want to learn physics', postDate: Date.parse('2021-06-27')}])
+
+Tag.create([{tagName: "learn"}, {tagName: "video"}, {tagName: "text"}, {tagName: "audio"}, {tagName: "game"}])
+
+Link.find(1).linktags.create(tag_id: 2) 
+Link.find(2).linktags.create(tag_id: 1) 
+Link.find(2).linktags.create(tag_id: 3) 
+Link.find(3).linktags.create(tag_id: 1) 
+Link.find(3).linktags.create(tag_id: 3) 
+Link.find(3).linktags.create(tag_id: 5) 
+Link.find(4).linktags.create(tag_id: 2) 
+Link.find(5).linktags.create(tag_id: 1) 
+Link.find(5).linktags.create(tag_id: 4) 
+Link.find(5).linktags.create(tag_id: 5)
+Link.find(6).linktags.create(tag_id: 2)
+Link.find(7).linktags.create(tag_id: 2)
+Link.find(8).linktags.create(tag_id: 3)
+Link.find(9).linktags.create(tag_id: 2)
+Link.find(9).linktags.create(tag_id: 4)
+Link.find(10).linktags.create(tag_id: 1)
+Link.find(10).linktags.create(tag_id: 2)
+Link.find(11).linktags.create(tag_id: 1)
+Link.find(11).linktags.create(tag_id: 3)
+```
+
+5. `rake db:seed` and good to go. Now at `http://0.0.0.0:5000/` I see the app.
+6. Test that the test is working by clicking through the links. Yes, it works.
+7. I had a mix-up in the dates. Going to hop my butt into the local heroku console and change some values. `heroku local:run rails console` (https://devcenter.heroku.com/articles/heroku-local) And the order of operations from this https://stackoverflow.com/questions/12329687/how-to-update-value-of-a-models-attribute: 
+
+
+```
+collison = Link.find(2)
+collison.postDate = Date.parse('2021-06-18')
+collisonl.save
+``` 
+
+8. Spin up `heroku local` again... and *interesting* - things changed. The order of the page is all wrong. I don't think it's ordering based on IDs. Must be ordering based on last updated? Okay, yes. Naturally the db orders by last updated entry. 
+9. Adding `.order(:id)` to my definitions in the controller
+10. Small hack to speed up development: have two terminals open. One has access to the rails console. The other has spun up the local environment.
+11. Moving things around and adding styling, because it's working. 
+
+https://stackoverflow.com/questions/10845517/how-to-change-the-link-color-in-a-specific-class-for-a-div-css

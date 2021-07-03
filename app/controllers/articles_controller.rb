@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   end
 
   def all
-    @all_links = Link.all
+    @all_links = Link.all.order(:id)
   end 
 
   def learn
