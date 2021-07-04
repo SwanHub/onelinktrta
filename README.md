@@ -441,3 +441,47 @@ collisonl.save
 11. Moving things around and adding styling, because it's working. 
 
 https://stackoverflow.com/questions/10845517/how-to-change-the-link-color-in-a-specific-class-for-a-div-css
+
+And testing out styling with links: https://yourbusiness.azcentral.com/clear-links-visited-pages-6860.html
+
+# Custom domain
+
+Okay, the testing environment works. Time is nigh to add a custom domain using heroku's system. I'm going to buy onelinktrta.com because it's cheap and available from Google.
+- `domains.google.com` `onelinktrta.com` >> add to cart >> pay for it.
+- we're good to go.
+- Now... follow Heroku > Settings > Add Domain > `www.onelinktrta.com`
+- Heroku provides a `DNS Target` ... per the Niko article, copy that, move over to Google domains 
+- DNS > Custom resource records > www | CNAME | 1hr | _DNS Target from Heroku_
+- Now check that your page exists, which it should at `http://www.onelinktrta.com` BUT be sure to note that it _does not_ yet exist at an `https` secure site location. You may need to use your phone to quickly confirm that `http` and not `https` has the site up. 
+- The next goal is to go from `http` to `https` so that I can have all of these domains go to the same place: 
+1. `http://www.onelinktrta.com`
+2. `http://onelinktrta.com`
+3. `https://www.onelinktrta.com`
+4. `https://onelinktrta.com`
+And that final place is (4) `https://onelinktrta.com`
+
+- Despite what Heroku seems to tell you in their pricing model – i.e. "custom domains" come with the free tier – they don't support _secure https_ custom domains. Just http, a la what we've already done. So in order to get a _secure https_ domain setup with Heroku, we need to pay $7/mo, moving up the tiers. I'm sure there are other sites to do this that don't cost any money, but we've already gone this far. Maybe in a future article, we practice using Netlify, Vercel or one of the other hosting services. For now, I'm okay paying $7/mo. Here we go...
+- In Heroku `onelinktrta` > Resources > Change Dyno Type > Hobby.
+- Settings > "Your certificate is automatically managed." 
+- `https://www.onelinktrta.com` - boom. Done. Amazingly easy, no configuration required. Last bit is going to be forwarding, which we'll follow from the directions in the Nico article. 
+- BECAUSE, note that if you type in `https://onelinktrta.com/` nothing will come up. Only the www is functioning at this stage.
+- And for whatever reason, I'm now in this odd endless error of "do you want to replace the records" The key here was just to remove `www.onelinktrta.com` from my "from" field. Let's see... Alright, well no error on the Forwarding page and it looks correctly setup. Then there is an error (see image)
+```
+This synthetic record has an error and will not function correctly:
+The SSL Certificate for this domain hasn't been created yet. This process may take up to 24 hours to complete.
+```
+- So I suppose we'll just wait for DNS to catch up 
+- I also added the sauce recommended by Niko... `heroku certs:auto:refresh` 
+- Still nothing, but hoping that changes in the next 10 minutes. In the meantime, let's write this article.
+
+- Oh interesting... now `https://www.onelinktrta.com/` doesn't appear either.
+- In order to test that things are working and to see if indeed I'm waiting on the Internet to crawl and do it's thing, I've changed the redirect type to temporary (302).
+- Used this as my resource: https://webmasters.stackexchange.com/questions/85519/can-i-configure-google-domains-to-redirect-a-bare-domain-to-a-subdomain-over-htt
+- Didn't work. Connection has been lost. Somehow the CNAME I'd setup disappeared. Hopefully that change does the trick.
+- I'm a bit lost. But the `https://www.onelinktrta.com` works. I suppose I'm just waiting for the changes to propagate? 
+
+... Alright... I suppose we just wait. Everything seems to be hung up on the fact that I don't have an SSL certificate readily available for Google to confirm. But... I definitely do. Visible thorugh Heorku so. I'm not sure.
+- I worry that things should actually be taking no time at all. Why does domain forwarding take any time at all? 
+- Ah, interesting. This is why we set things up on the phone. If I type in `onelinktrta.com` on my phone, it forwards correctly to `www.onelinktrta.com` ... but shows with an alert symbol warning about SSL. 
+- And when I type in `http://onelinktrta.com` well... IT WORKS. I'm sent to `https://www.onelinktrta.com` so it must be a browser caching issue on my side?
+- AH! The error is gone... I think DNS has done it's job and we're good to go. Unclear if my checking things on my phone had anything to do with it. Well, there we are.
