@@ -1,52 +1,160 @@
 # README
 
-The purpose of this project is to relearn the basics of coding. For today's purposes that is 
-1. Creating the correct dev environment. 
-2. Properly using VSCode. 
-3. Successfully create a rails app on local environment. Change things around and display my own custom info on PORT 3000. 
-4. Send that app up to heroku. 
-5. Create a database that links to the app. 
-6. Display data from the database.
+# Not sure where these go yet, but important: 
 
-Thing I re-learned about coding while doing this:
+- Small things like the difference between '<% yield %>' and '<%= yield %>' are crucial to success as a developer. Attention to detail. In the above case, either everything appears or nothing appears. Big difference.
+- What is the role of postgres on my local computer? Not sure it's entirely needed. 
+- What configuring do I need to do with the env variable $PORT? What is it?
 
-* There is a gem called yarn (deprecated and irrelevant) and there is a node package called yarn (the one we want). Figuring out that I had the gem installed, needed to uninstall that and reinstall the node version took some time and energy. A familiar frustration, figuring out someone else's rules.
+## Notes for the reader
 
-* Small things like the difference between '<% yield %>' and '<%= yield %>' are crucial to success as a developer. Attention to detail. In the above case, either everything appears or nothing appears. Quite a difference.
+- I use `onelinktrta` everywhere when referring to my app, because that's the name of the one I created. You choose a different name! 
+- Note that when I include `$` at the start of a piece of code, that indicates a command in Terminal. Example: `$ git init` is this: 
 
-* 2FA introduces a new set of authentication issues that likewise took some time to figure out. Finally, though, we've hooked up our repo to github.
+[Picture]
 
+–––––––––––––––––––––––––––––––––––––––––––
 
-Possible current issues
-- Not listening on the right $PORT (never set that up).
-- Postgres not properly setup. Clearly not functioning properly on local.
-- I think I'll need to create this rails app from new, connect it to GH, push some commits, etc. so I can START with it connected to postgres. Too much headache for me to work through at this hour. 
+# Steps to victory
+1. Set up dev environment & VS Code on a new computer. (outlined)
+2. Create a Rails app locally, connect to Github. (outlined)
+3. Deploy it to Heroku. (outlined)
+4. Initialize a database on Heroku, seed it and display live data. 
+5. Create join table & unique pages for each tag. 
+6. Set up a local environment & seed.
+7. Add minimal CSS. (outlined)
+8. Connect app to a custom domain. (outlined)
 
-Order of operations to create + deploy a new app
-- Make sure the computer itself is ready to be a dev environment (black box of error messages)
-- `rails new app_name --database=postgresql` and don't forget that postgres action, otherwise you're fucked. 
-- Give it version control with git ==> `git init` (maybe something more than that), then `stats` + `add` + `commit -m "first message`
+––––––––––––––––––––––––––––––––––––––––––––
+
+# 1. Set up environment & VS Code on a new computer
+
+My computer specs: 
+- Macbook Air
+- MacOS Catalina 10.15.7
+- Google Chrome
+
+## Downloads
+- Homebrew (code library installer)
+- Git (version control)
+- Ruby (language)
+- Gem (code library installer for Ruby)
+- Rails (web framework using Ruby)
+- Javascript (language)
+- NPM (code library installer for Javascript)
+- VS Code (editor)
+- VS Code plug-ins (coding efficiency)
+- Postgres (local database)
+
+## Relevant websites
+- Github (code storage)
+- Heroku (code deployment)
+
+## Links for each
+- Learn.co link (what I used at Flatiron, a process that should be open sourced)
+- brew install ruby, etc. ^^
+- Just write it all down here
+
+## Odd errors solved
+* There is a `gem` called `yarn` (deprecated and irrelevant) and there is a `node package` also called `yarn` (the one we want). For a while I was receiving error message: `ERROR MESSAGE HERE` and only figured things out by going to this `STACK OVERFLOW RESPONSE` [Link] 
+- The key was: delete the gem. Re-install the node package. To check this use `THIS In TERMINAL`
+
+* If you have 2FA, linking up to Github can cause issues. EXPLAIN ISSUE HERE, If I CAN REMEMBER. 
+
+- how do we know if everything is working correctly? What's the smoke test? JACKSON TO FIGURE OUT.
+
+––––––––––––––––––––––––––––––––––––––––––––
+
+# 2. Create a Rails app locally, connect to Github
+- Guide to rails [link]
+
+- Move to your desktop or wherever you want to save the app: `$ cd desktop` 
+
+- `$ rails new onelinktrta --database=postgresql`
+- Don't forget `--database=postgresql`; SQLite is your default database. That's not an issue if you're just running the app on your own computer (i.e. a game on your Terminal). But it is an issue if you eventually want to send your app up to Heroku and deploy it on the web. Heroku uses postgres, so use postgres.
+- Move into the newly made Rails app directory: `cd onelinktrta`
+- Spin up git version control: `git init`
+- then the classic of: 
+    1. `$ git status` (checks for changes)
+    2. `$ git add .` (stages the changes) 
+    3. `$ git commit -m "first message` (commits changes) 
     - You now have an app that exists in code on your computer and has version control. 
-- To test that it's working cd in and use `rails s` to spin up a local server. If puma, yarn and everything else is installed correctly, then you should see the default Rails page. Nice. Now time to connect to Heroku.
-- Heroku has 10 different things it wants you to do to setup existing applications. Follow their detailed instructions, which include creating a random instructional called a Procfile. 
-- Things that aren't yet clear are the role of postgres on your local computer and what configuring I need to do with the env variable $PORT. I could start from scratch, or try and figure out what's wrong with the current app, which I think will be beneficial overall for my understanding of how things work.
+- To test that it's working cd in and use `rails s` to spin up a local server. If puma, yarn and everything else is installed correctly, then you should see the classic default Rails page. 
 
-Ok goodbye. It shouldn't take me 3 hours to deploy something from scratch. Especially using Rails.
+[Picture]
 
-Well, somehow it worked. I just sent the thing up into the heroku universe and... it built. So. That's good. 
+Nice. Now, let's change that page info to something more appopriate. In Views (page displays), go to Application.html.erb and write in a header: 
 
-We're back in it.... Next step is to link this baby to a database. Imagined steps: 
+```
+<h1>onelinktrta</h1>
+<h3>what's good about the internet</h3>
+
+```
+
+- Reload your server e.g.local.3000.
+- If the changes are reflected, you know you have a working Rails app. Let's link the app up to Github to save the code in the cloud for free.
+
+- GITHUB link to get things setup.
+- Note about 2FA. 
+
+Once you see the README.md appear like so, you're good to go: 
+
+[Picture]
+
+To triple check, Change the README.md to say: 
+
+```
+Hello world.
+```
+1. `$ git status` (checks for changes)
+2. `$ git add .` (stages the changes) 
+3. `$ git commit -m "first message` (commits changes) 
+4. `$ git push -u origin main`
+
+If you see `Hello world` as the text now in your README on Github, you're good to go. 
+
+––––––––––––––––––––––––––––––––––––––––––––
+
+## 3. Deploy the app to Heroku.
+
+Heroku guide to Rails 6.X [Link]
+
+You have a Rails app. That Rails app is not Heroku-ready as is. Here's what to expect: 
+
+- Add a `Procfile`
+    - What is a procfile? [Link] A Heroku-specific document describing how Heroku should spin up your app.
+- Change the database to postgres with the correct $PORT. 
+- Log in to Heroku [Link]
+- Connect CLI [Link]
+- Create a new Heroku app [Link]
+- Add a new remote origin for `/onelinktrta` (your Rails app) i.e. you will be sending your code to a custom version of Github that Heroku maintains. They will store your code. From this point on you'll push your code to both Github and Heroku. 
+- OTHER THINGS I FORGET. 
+
+––––––––––––––––––––––––––––––––––––––––––––
+
+## 4. Initialize a database with join table on Heroku, seed it. 
+
+Steps: 
+1. Use Rails models generators (cookie-cutter code) that creates database migrations, models, controllers and schema.
  
 - Initialize a database (local) 
 - Initiatize tables (local)
-- Initialize & migrate tables in heroku production. 
-- Access the console. 
+- Initialize & migrate tables in heroku production. (remote)
+- Access the console. (remote)
+
+I'm creating an app that posts one link per day. Each of those links can have multiple tags. I imagine just three tables: 1) Links, 2) Tags, 3) Links & Tags Join Table.
+
+What's a join table [Link]
+Grammatical standards [Link] - need the actual phrase
+
+The tables we want:
 - Seed with all the correct data. 
     The correct data, Table Links:
         - link:string 
         - postDate: date
         - timestamps
         - title:string (may or may not use)
+
     (optional) The correct data, Table TagsLinks:
         - FK:link
         - FK:tag
@@ -56,11 +164,6 @@ We're back in it.... Next step is to link this baby to a database. Imagined step
         - timestamps
 
 - The above will give me step 1) a list of links postable by date and 2) the possibility of tagging.
-    Example tags: 
-        - Subject matter (horse, animal, education, niche)
-        - Media type (video, article, interactive, twitter thread)
-        - Website (YouTube, Reddit, independent, etc.)
-
 
 With all that info, you can create a pretty nice little system. Fairly robust. Just need to figure out how to do this database migration. Going to read a few articles first. At the moment, just looking at the Rails Heroku page and the Rails Getting Started page. The Getting started page is optimized for a local environment so just want to be sure. Medium article time.
 
@@ -83,6 +186,11 @@ With all that info, you can create a pretty nice little system. Fairly robust. J
 - Created our first record. Let's now display this thing. Working through the rails documentation, I then saved the new initialized object to the database and found it again via id. `link1.save` then `Link.find(1)` And there it is with its timestamps, etc. Game on. 
 
 OKAY NEXT PHASE, display the data.
+
+––––––––––––––––––––––––––––––––––––––
+
+
+## 5. Display live data. 
 
 - We're entering the controller / view / erb area. I remember this, but only kind of. The key here is that to display things, you use `@`. That variable is the shared value between controller and view. Let's just do this thing.
 - One issue I have now is that my controller is called "ArticlesController" but it should really be "LinksController" ––– I'll fix that in a bit. Eager to just see things appear on the page.
@@ -115,116 +223,7 @@ Adding a new day to the mix...
 
 `Link.create([{url: 'https://nandgame.com/', description: 'learn to build a computer from scratch', postDate: Date.parse('2021-06-29')}])`
 
-
-Final step: connect a domain.
-We'll do `swanl.industries/onelinktrta`
-
-`www.swan.industries`
-
-https://nikodunk.com/heroku-ssl-google-domains-2019/
-
-https://devcenter.heroku.com/articles/custom-domains
-
-Okay, so briefly I think it worked. But the article above hath led me astray. Heroku article assumes some knowledge of things, which I don't have. Tomorrow, need to do a review of DNS actions, what they mean, how they work, etc.
-
-The next step here is to add a domain. 
-
-Question: do I add an "admin" side after that which allows me to add more links without going to heroku console? Would be nice and relevant to re-explore POST requests. 
-
-A reminder that is interesting: you don't need to pay to hook up a domain to your website. Not with Heroku at least. Not sure what Webflow's deal is -- I have a sense that they make you pay to hook up a custom domain and push code out to prod. But with Heroku (and Aspect for that matter, although the whole thing is unpaid), you hook up a custom domain for free.
-
-What does it mean to "hook up a custom domain"? 
-1. Buy a custom domain. I use Google Domains. GoDaddy and Google are probably the most common domain marketplaces.
-2. Generate a pointer on Heroku. This is where the code is stored. Tell the custom domain (when someone tries to GET it) to go to the Heroku pointer location. This is all done in the "custom resources" section using CNAME, etc.
-
-
-# Hooking up a custom domain
-
-I followed Niko's steps (1) and (2). I'm left with a few promising clues. 
-1. The error message on Google has changed when I try to access www.swan.industries: This site can’t provide a secure connection. www.swan.industries sent an invalid response.
-2. And in "Websites" I see a preview of the actual site I'm supposed to see when I type in www.swan.industries.
-
-I'll try to follow through with step 3, although last night it didn't work. I wonder if at this stage it's just a matter of time. The "It could take up to 48hrs for X to take effect" msg.
-
-I feel like theoretically, you shouldn't need a domain forwarding system at this stage. If the CNAME for www goes to the `heroku` pointer I've created, then that'll all we really need... If these further steps in 3 don't work then I'll just wait a few hours and see what happens. Can do join table tags in the meantime.
-
-Checking to see the status of things at: 
-- `heroku domains`
-- Domain Name         DNS Record Type DNS Target                                             SNI Endpoint 
-www.swan.industries CNAME           [redacted].herokudns.com undefined
-
-- What is SNI endpoint?
-
-Alright, I followed the directions in the article.
-
-I need Heroku free tier to do this step `heroku certs:auto:refresh` – BUT that shouldn't be an issue. Heroku allows custom domains on the free tier. (see pricing)
-
-An issue is now there is now website preview visibly available in my Google Domains dashboard. Sad because this part is so easy with Aspect. Why Heroku causing issues? Probably Tshepo is running a much simpler operation. No need of complex DNS targeting. Just send it all to one spot 
-
-Well, evidently that article does not help. I'll now try going through Heroku's guide.  https://devcenter.heroku.com/articles/custom-domains
-1. Verified my account.
---
-1. (DONE) Confirm that you own the custom domain name. You can buy a custom domain name with a domain registration service.
-2. Add the custom domain to your app with the heroku domains:add command.
-3. Look up the Heroku-supplied DNS target for the custom domain using the heroku domains command.
-4. Configure your app’s DNS provider to point to the Heroku-supplied DNS target.
-5. Confirm that your app is accessible via the custom domain. There might be a delay while DNS changes propagate.
-
-
-Ah, interesting note about Heroku. It's not a static IP address like it is with Aspect. So you're pointing at a thing that is shifting on Heroku's side. Whereas with Aspect, we just all pointed at the single IP address of whatever Tshepo's got going on over there.
-
-I removed email forwarding in accordance with Heroku neglecting to include that in their docs. I should just be able to point the subdomain to the moving Heroku DNS target.
-
-I removed the trailing `.` - maybe that'll do it.
-
-```The trailing . on the target domain may or may not be required, depending on your DNS provider.```
-
-Checking to see if the "host as propogated" `host www.swan.industries`
-
-Things seem to be correctly linked for the site `www.swan.industries` Reason beings:
-- On "Website preview" in my Google domains manager, I see onelinktrta. 
-- If I type in `heroku domains` I get a seemingly correct readout. 
-- If I type `host www.swan.industries` I get the correct readout: 
-```www.swan.industries is an alias for obscure-peafowl-f358aftlaf82dbw42zc6qx61.herokudns.com.```
-
-Thoughts: 
-- It might just take a day or two for this thing to work (though that would be odd given my past experiences with CNAMEs). Then I'll refresh everything 
-- maybe I'm missing a `.` somewhere? Like is the trailing dot an issue on Google's end?
-
-Ahhh I see what's going on. Scrolling through Heroku settings, the site is supposed to be visible at http://www.swan.industries. No SSL. 
-
-I'm going to enter the paid tier of Heroku $7/mo so I can get automatic SSL?
-
-This guy's got it going on: https://stackoverflow.com/questions/67243264/heroku-with-lets-encrypt-couldnt-find-that-sni-endpoint.
-
-To make some room in my budget, I just got rid of domain `datatrust.wiki` for $28/yr. 
-
-So I have 2 options: 
-- I can upgrade to paid tier for $7/mo.
-- Or I can go through Let's Encrypt myself. And maybe even answer this guys question above if I make it out the other side. Let's do Let's Encrypt.
-PS. It is definitely the "SNI Endpoint" undefined that is tripping things up.
-
-# Let's Encrypt
-
-- Great. Heroku is partial. https://certbot.eff.org/hosting_providers. 
-
-OKAY. I just looked up the site on my phone and it is INDEED accessible on the internet. But SSL is NOT setup yet. Neither is the correct forwarding. We're moving forward.
-
-So now it's confirmed that I can either a) setup Heroku or b) go through things manually with certbot. Let's do certbot.
-
-Reading this https://medium.com/@bantic/free-tls-with-letsencrypt-and-heroku-in-5-minutes-807361cca5d3
-
-And not immediately able to grok the documentation, I'm inclined to just pay.
-
-Super interesting / conflicting / annoying that I can use a custom domain but in order for that domain to have SSL certification
-
-Still curious about the SSL. Is it necessarily a paid thing? This article suggests not: https://sslrenewals.com/blog/difference-between-free-ssl-certificate-and-paid-ssl-certificate and there is a "manual configuration" process on Heroku I can go through.
-
-https://devcenter.heroku.com/articles/ssl
-
-Alright, I'm going to just pay. You win, Salesforce. BUT I'm going to do that at the end. Let's move on to other things.
-
-Will need this at that point: https://devcenter.heroku.com/articles/automated-certificate-management
+––––––––––––––––––––––––––––––––––––––––––––––––
 
 # Tags (join table)
 
@@ -281,7 +280,10 @@ Future add-ons / articles:
 
 ... you can pretty much get endless with thing. It's my version of a blog. New and links from the web all the time.
 
-# Creating Routes in Rails
+
+–––––––––––––––––––––––––––––––––––––––––
+
+## Creating Routes in Rails
 
 - Conceptually, we're going from routes to controller to sending out a view, which may or may not be relying on a model? Depends on if you're engaging with database. 
 
@@ -381,6 +383,8 @@ Ah, I didn't change the logic. Need to go back and pull the correct id from the 
 - Find an interesting way to render the category listings. (done)
 - Remove underline from link in header. (done)
 
+
+
 # Setting up a local environment 
 
 1. I hit `heroku local` and received a NoDatabaseError
@@ -444,44 +448,112 @@ https://stackoverflow.com/questions/10845517/how-to-change-the-link-color-in-a-s
 
 And testing out styling with links: https://yourbusiness.azcentral.com/clear-links-visited-pages-6860.html
 
-# Custom domain
 
-Okay, the testing environment works. Time is nigh to add a custom domain using heroku's system. I'm going to buy onelinktrta.com because it's cheap and available from Google.
-- `domains.google.com` `onelinktrta.com` >> add to cart >> pay for it.
-- we're good to go.
-- Now... follow Heroku > Settings > Add Domain > `www.onelinktrta.com`
-- Heroku provides a `DNS Target` ... per the Niko article, copy that, move over to Google domains 
-- DNS > Custom resource records > www | CNAME | 1hr | _DNS Target from Heroku_
-- Now check that your page exists, which it should at `http://www.onelinktrta.com` BUT be sure to note that it _does not_ yet exist at an `https` secure site location. You may need to use your phone to quickly confirm that `http` and not `https` has the site up. 
-- The next goal is to go from `http` to `https` so that I can have all of these domains go to the same place: 
-1. `http://www.onelinktrta.com`
-2. `http://onelinktrta.com`
-3. `https://www.onelinktrta.com`
-4. `https://onelinktrta.com`
-And that final place is (4) `https://onelinktrta.com`
+## 7.  Add minimal CSS
+No use in belaboring this section. The site is extremely simple. Just wanted basic spacing. In the future, I may return to this page and include a number of other designs.
 
-- Despite what Heroku seems to tell you in their pricing model – i.e. "custom domains" come with the free tier – they don't support _secure https_ custom domains. Just http, a la what we've already done. So in order to get a _secure https_ domain setup with Heroku, we need to pay $7/mo, moving up the tiers. I'm sure there are other sites to do this that don't cost any money, but we've already gone this far. Maybe in a future article, we practice using Netlify, Vercel or one of the other hosting services. For now, I'm okay paying $7/mo. Here we go...
+```
+body { 
+padding-left: 30px;
+}
+
+h2 {
+padding: 0px;
+margin-top: 0px;
+margin-bottom: 5px;
+}
+
+.navigation {
+    font-size: 10px;
+    padding: 3px;
+}
+```
+
+
+–––––––––––––––––––––––––––––––––––––––––––
+
+
+## 8. Connect a custom domain
+
+> Tripped me up: Heroku says you can link up custom domains on the Free tier. This is true, to an extent. You can link up an `http` unsecure custom domain for free and easily. But in order to secure your site with `https`, you need to either a) upgrade to Hobby plan at $7/mo or b) go through the process of obtaining a certificate manually through Let's Encrypt [link]. I didn't have the patience to go through Let's Encrypt and went with the easy option of paying for the Hobby tier. 
+
+Steps:
+- Buy a custom domain via Google.
+- Upgrade Heroku to Hobby ($7/mo) to auto-manage https.
+- Connect custom domain to Heroku app.
+
+Articles:
+- (Most helpful) https://nikodunk.com/heroku-ssl-google-domains-2019/
+- https://devcenter.heroku.com/articles/custom-domains
+
+Buy domain, connect to app:
+- `domains.google.com` > `onelinktrta.com` > add to cart > pay for it.
+- You now own the root domain `onelinktrta.com`. Google hosts it for a yearly fee.
+- Back to onelinktrta app in Heroku > Settings > Add Domain > `www.onelinktrta.com`
+- Heroku provides a `DNS Target` - copy that.
+- `domains.google.com` > My domains > onelinktrta.com > DNS
+- Add a custom resource record > www | CNAME | 1hr | _DNS Target from Heroku_
+
+> In a second, your page will be available on the web, but via unsecure `http` not the secure `https` which is standard/necessary. Visit `http://www.onelinktrta.com` on your phone browser. Your site should come up immediately. I used my phone because Google Chrome on my desktop kept automatically rerouting me to the `https`, which sent back a page connection error, because I hadn't yet setup `https`.
+
+Go from http (unsecure) to https (secure): 
 - In Heroku `onelinktrta` > Resources > Change Dyno Type > Hobby.
 - Settings > "Your certificate is automatically managed." 
-- `https://www.onelinktrta.com` - boom. Done. Amazingly easy, no configuration required. Last bit is going to be forwarding, which we'll follow from the directions in the Nico article. 
-- BECAUSE, note that if you type in `https://onelinktrta.com/` nothing will come up. Only the www is functioning at this stage.
-- And for whatever reason, I'm now in this odd endless error of "do you want to replace the records" The key here was just to remove `www.onelinktrta.com` from my "from" field. Let's see... Alright, well no error on the Forwarding page and it looks correctly setup. Then there is an error (see image)
+- Visit `https://www.onelinktrta.com` - Done. No configuration required.
+
+Setup domain forwarding:
+- Visit `https://onelinktrta.com/`. Nothing comes up.
+
+In the end, the following domains all lead to `www.onelinktrta.com`:
+- `https://www.onelinktrta.com`
+- `https://onelinktrta.com`
+- `http://www.onelinktrta.com`
+- `http://onelinktrta.com`
+
+Follow Niko's instructions: 
+- From onelinktrta.com
+- To: https://www.onelinktrta.com
+- BLANK SHOULD BECOME BLANK
+- Permanent redirect (301).
+- SSL enabled.
+
+Two errors I ran into:
+
+1. An endless error in Google Domains asking me: "Do you want to replace the records?" Solved by removing `www.onelinktrta.com` as a domain in the "from" field (it was was added automatically?). 
+
+2. After correctly setting up domain forwarding, there was a period where I still was not able to reach `https://onelinktrta.com`. Receiving this error in the browser:
+
+[Picture]
+
+And this one in the Google Domains DNS dashboard:
+
 ```
 This synthetic record has an error and will not function correctly:
 The SSL Certificate for this domain hasn't been created yet. This process may take up to 24 hours to complete.
 ```
-- So I suppose we'll just wait for DNS to catch up 
-- I also added the sauce recommended by Niko... `heroku certs:auto:refresh` 
-- Still nothing, but hoping that changes in the next 10 minutes. In the meantime, let's write this article.
 
-- Oh interesting... now `https://www.onelinktrta.com/` doesn't appear either.
-- In order to test that things are working and to see if indeed I'm waiting on the Internet to crawl and do it's thing, I've changed the redirect type to temporary (302).
-- Used this as my resource: https://webmasters.stackexchange.com/questions/85519/can-i-configure-google-domains-to-redirect-a-bare-domain-to-a-subdomain-over-htt
-- Didn't work. Connection has been lost. Somehow the CNAME I'd setup disappeared. Hopefully that change does the trick.
-- I'm a bit lost. But the `https://www.onelinktrta.com` works. I suppose I'm just waiting for the changes to propagate? 
+I initially tried changing the domain forwarding from `301` to `302` (temporary), assuming from this article [https://webmasters.stackexchange.com/questions/85519/can-i-configure-google-domains-to-redirect-a-bare-domain-to-a-subdomain-over-htt] that I was just waiting for the changes to propagate over the Internet.
 
-... Alright... I suppose we just wait. Everything seems to be hung up on the fact that I don't have an SSL certificate readily available for Google to confirm. But... I definitely do. Visible thorugh Heorku so. I'm not sure.
-- I worry that things should actually be taking no time at all. Why does domain forwarding take any time at all? 
-- Ah, interesting. This is why we set things up on the phone. If I type in `onelinktrta.com` on my phone, it forwards correctly to `www.onelinktrta.com` ... but shows with an alert symbol warning about SSL. 
-- And when I type in `http://onelinktrta.com` well... IT WORKS. I'm sent to `https://www.onelinktrta.com` so it must be a browser caching issue on my side?
-- AH! The error is gone... I think DNS has done it's job and we're good to go. Unclear if my checking things on my phone had anything to do with it. Well, there we are.
+Everything seems to be hung up on the fact that I don't have an SSL certificate readily available for Google to confirm. But... I definitely do. Visible thorugh Heroku so. I'm not sure.
+
+- Solved, again, by testing via my phone. I searched `onelinktrta.com` on my phone and it forwarded _correctly_ to `www.onelinktrta.com` ... but with an alert symbol in the url bar warning about no security / SSL certificate.
+- Then typed in `http://onelinktrta.com` and it worked, correctly sent to `https://www.onelinktrta.com`. Perhaps a browser caching issue? Not sure.
+- Immediately thereafter, errors are resolved on desktop and everything works.
+
+
+Further reading / questions:
+- What is the manual process for Let's Encrypt + certbot?
+- Static IP vs Dynamic IP (re: Heroku)
+
+––––––––––––––––––––––––––––––––––––––––––––––
+
+
+Other articles:
+- https://devcenter.heroku.com/articles/automated-certificate-management
+- https://stackoverflow.com/questions/67243264/heroku-with-lets-encrypt-couldnt-find-that-sni-endpoint.
+- Heroku + Let's Encrypt: https://certbot.eff.org/hosting_providers. Heroku is partial.
+- Certbot: https://medium.com/@bantic/free-tls-with-letsencrypt-and-heroku-in-5-minutes-807361cca5d3
+- SSL is not necessarily a paid certificate, but there are clear advantages: https://sslrenewals.com/blog/difference-between-free-ssl-certificate-and-paid-ssl-certificate 
+- Certbot + Let's Encrypt pretty confusing at the jump. Inclined to just pay?
+- https://devcenter.heroku.com/articles/ssl
+- Heroku uses dynamic, rather than static IP. Worth reading about. [Link]
