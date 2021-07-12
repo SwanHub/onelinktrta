@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
   def music
     @music_links = []
 
-    LinkTag.where(tag_id: 4).each do |music_link|
+    LinkTag.where(tag_id: 4).order(:link_id).each do |music_link|
       @music_links.push(Link.find(music_link.link_id))
     end
   end
