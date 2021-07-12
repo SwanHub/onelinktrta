@@ -32,11 +32,11 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def audio
-    @audio_links = []
+  def music
+    @music_links = []
 
-    LinkTag.where(tag_id: 4).each do |audio_link|
-      @audio_links.push(Link.find(audio_link.link_id))
+    LinkTag.where(tag_id: 4).each do |music_link|
+      @music_links.push(Link.find(music_link.link_id))
     end
   end
 
