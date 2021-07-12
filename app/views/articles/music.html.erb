@@ -9,11 +9,11 @@
     <a class="navigation" href="/learn">learn</a>
     <a class="navigation" href="/video">video</a>
     <a class="navigation" href="/text">text</a>
-    <a class="navigation" href="/audio">audio</a>
+    <a class="navigation" href="/music">music</a>
     <a class="navigation" href="/game">game</a>
 </header><br>
 
 <%# all links with audio tag %>
-<% @audio_links.reverse.each do |audio_link| %>
-    <a target="_blank" href=<%= audio_link.url %>> <%= audio_link.postDate %></a>&nbsp <span style="font-size:10px;"><%= audio_link.description %></span><br>
+<% @music_links.reverse.each do |music_link| %>
+    <a target="_blank" href=<%= music_link.url %>> <%= music_link.postDate %></a>&nbsp <span style="font-size:10px;"><%= music_link.description %></span><br>
 <% end %>
