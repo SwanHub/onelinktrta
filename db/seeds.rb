@@ -47,11 +47,10 @@
 # Link.find(11).linktags.create(tag_id: 3)
 
 # Next: 
-# https://youtu.be/ferZnZ0_rSM (anderson paak tiny desk)
+# https://youtu.be/dOoHArAzdug (free dive from space)
 # https://youtu.be/FAM1N1APk80 (maggie rogers debut)
 # https://youtu.be/ZnZqB5Z75zI (Quicksilver)
 # https://youtu.be/xh1ROLEDyP4 (eminem 8 mile)
-# https://youtu.be/BXyfCGDnuWs (109-year-old veteran)
 # https://youtu.be/OacVy8_nJi0 (koyaanisqatsi final scene)
 # https://youtu.be/SRwI3tgr3mQ (letterman and johnny depp)
 # https://youtu.be/Rsy5u8LkP-Q (curb your flat earth)
@@ -60,4 +59,8 @@
 # https://youtu.be/M7FIvfx5J10 (van damme split) 
 # https://youtu.be/TKRQBl8cap4 (bruce lee)
 # https://youtu.be/jPAr3RpHugM (guy nails every accent)
-# https://nbabite.com/ (watch free live sports) 
+# https://youtu.be/zw97LIBGbR4 (Shwarzenneger hit by an egg)
+# https://youtu.be/GV6GgchU27M (drink glacier water)
+# https://youtu.be/kxopViU98Xo (10hrs epic sax guy)
+# https://youtu.be/EsWHyBOk2iQ (will ferrell and chad smith)
+# https://bongo.cat/ (bongo cat)
