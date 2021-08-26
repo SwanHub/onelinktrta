@@ -63,4 +63,29 @@
 # https://youtu.be/GV6GgchU27M (drink glacier water)
 # https://youtu.be/kxopViU98Xo (10hrs epic sax guy)
 # https://youtu.be/EsWHyBOk2iQ (will ferrell and chad smith)
-# https://bongo.cat/ (bongo cat)
+# https://bongo.cat/ (bongo cat) 
+# Cows and music 
+# No Country for Old Men 
+# https://twitter.com/TechEmails/status/1413534752699830275
+# https://twitter.com/TechEmails/status/1409916451729940480
+# https://twitter.com/TechEmails/status/1407016788240576512
+# https://youtu.be/c0pS3Zx7Fc8
+# https://youtu.be/Y2d2HLdBF88
+# https://youtu.be/gpZeHFDPaxQ
+# https://youtu.be/c_7_bQ7rAoc
+# https://youtu.be/FqWgTM4di4s (slap chop)
+# https://youtu.be/d6QXxMDp7Zg (278 days build a water park)
+# https://youtu.be/DY_zyLEiNYk (OG Tony Robbins)
+# https://www.youtube.com/watch?v=O5nskjZ_GoI&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo&index=3 (crash course in computer science... maybe used)
+# https://www.instagram.com/reel/CRcTGsJpI_U/?utm_medium=copy_link (stop motion tiktok)
+# https://youtu.be/NDW9zKqvPJI (Jocelyn Bell Burnell discovered pulsars)
+# https://www.datcreativity.com/ (verbal creativity test) - game
+# https://gail.com/ (gail dot come won't sell out)
+# https://www.instagram.com/reel/CRrVb6bHzZG/ (virtual marble machine)
+# https://www.usdebtclock.org/?fbclid=IwAR2ex31kGIAEjIRtwVCmecaumsmBeNjH1f4viVtjGFxG27rUxFAagX6ARAg (U.S. debt clock)
+# https://direkris.itch.io/you-are-jeff-bezos (you are jeff bezos)
+# https://youtu.be/SGUCcjHTmGY (openai's codex)
+# https://jamesclear.com/goal-setting
+# https://jamesclear.com/multitasking-myth
+# https://www.instagram.com/p/CS4n9jygn1D/?utm_medium=copy_link
+# https://oncyber.io/dwr
