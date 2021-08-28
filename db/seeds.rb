@@ -67,7 +67,7 @@ Link.create([{url: 'https://www.datcreativity.com/', description: 'verbal creati
 a5 = Link.last
 a5.linktags.create(tag_id: 5)
 
-Link.create([{url: 'https://gail.com/', description: 'gail won't sell', postDate: Date.parse('2021-07-20')}])
+Link.create([{url: 'https://gail.com/', description: 'gail wont sell', postDate: Date.parse('2021-07-20')}])
 a6 = Link.last
 a6.linktags.create(tag_id: 3)
 
@@ -87,13 +87,26 @@ a9.linktags.create(tag_id: 3)
 
 Link.create([{url: 'https://direkris.itch.io/you-are-jeff-bezos', description: 'you are jeff bezos', postDate: Date.parse('2021-07-24')}])
 a10 = Link.last
-a10.linktags.create(tag_id: 5)
 a10.linktags.create(tag_id: 1)
+a10.linktags.create(tag_id: 5)
 
 Link.create([{url: 'https://oncyber.io/dwr', description: '3d nft gallery', postDate: Date.parse('2021-07-25')}])
 a10 = Link.last
-a10.linktags.create(tag_id: 5)
 a10.linktags.create(tag_id: 1)
+a10.linktags.create(tag_id: 5)
+
+Link.create([{url: 'https://bongo.cat/', description: 'bongo cat', postDate: Date.parse('2021-07-26')}])
+a11 = Link.last
+a11.linktags.create(tag_id: 4)
+a11.linktags.create(tag_id: 5)
+
+Link.create([{url: 'https://www.instagram.com/p/CS4n9jygn1D/', description: 'robots in rain', postDate: Date.parse('2021-07-27')}])
+a12 = Link.last
+a12.linktags.create(tag_id: 2)
+
+Link.create([{url: 'https://youtu.be/tF4DML7FIWk', description: 'boston dynamics parkour robots', postDate: Date.parse('2021-07-28')}])
+a13 = Link.last
+a13.linktags.create(tag_id: 2)
 
 
 
@@ -125,7 +138,6 @@ a10.linktags.create(tag_id: 1)
 # https://youtu.be/GV6GgchU27M (drink glacier water)
 # https://youtu.be/kxopViU98Xo (10hrs epic sax guy)
 # https://youtu.be/EsWHyBOk2iQ (will ferrell and chad smith)
-# https://bongo.cat/ (bongo cat) 
 # Cows and music 
 # No Country for Old Men 
 # https://twitter.com/TechEmails/status/1413534752699830275
@@ -136,4 +148,3 @@ a10.linktags.create(tag_id: 1)
 # https://www.youtube.com/watch?v=O5nskjZ_GoI&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo&index=3 (crash course in computer science... maybe used)
 # https://youtu.be/SGUCcjHTmGY (openai's codex)
 # https://jamesclear.com/multitasking-myth
-# https://www.instagram.com/p/CS4n9jygn1D/?utm_medium=copy_link
