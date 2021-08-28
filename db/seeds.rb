@@ -6,11 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# 1 - learn 
-# 2 - video 
-# 3 - text 
-# 4 - audio 
-# 5 - game 
+##### Original seeds ----------------------
 
 # Link.create([{url: 'https://youtu.be/dNJdJIwCF_Y', description: 'fresh guacamole by PES', postDate: Date.parse('2021-06-17')}])
 # Link.create([{url: 'https://patrickcollison.com/fast', description: 'patrick collison fast', postDate: Date.parse('2021-06-18')}])
@@ -46,9 +42,75 @@
 # Link.find(11).linktags.create(tag_id: 1)
 # Link.find(11).linktags.create(tag_id: 3)
 
+##### Additional seeds ----------------------
+
+# 1 - learn 
+# 2 - video 
+# 3 - text 
+# 4 - music
+# 5 - game 
+
+Link.create([{url: 'https://youtu.be/DY_zyLEiNYk', description: 'tony robbins sells cassettes', postDate: Date.parse('2021-07-16')}])
+a2 = Link.last
+a2.linktags.create(tag_id: 1)
+
+Link.create([{url: 'https://www.instagram.com/reel/CRcTGsJpI_U', description: 'stop motion tiktok', postDate: Date.parse('2021-07-17')}])
+a3 = Link.last
+a3.linktags.create(tag_id: 2)
+
+Link.create([{url: 'https://youtu.be/NDW9zKqvPJI', description: 'jocelyn bell burnell discovered pulsars', postDate: Date.parse('2021-07-18')}])
+a4 = Link.last
+a4.linktags.create(tag_id: 1)
+a4.linktags.create(tag_id: 2)
+
+Link.create([{url: 'https://www.datcreativity.com/', description: 'verbal creativity challenge', postDate: Date.parse('2021-07-19')}])
+a5 = Link.last
+a5.linktags.create(tag_id: 5)
+
+Link.create([{url: 'https://gail.com/', description: 'gail won't sell', postDate: Date.parse('2021-07-20')}])
+a6 = Link.last
+a6.linktags.create(tag_id: 3)
+
+Link.create([{url: 'https://www.instagram.com/reel/CRrVb6bHzZG/', description: 'virtual marble machine', postDate: Date.parse('2021-07-21')}])
+a7 = Link.last
+a7.linktags.create(tag_id: 2)
+a7.linktags.create(tag_id: 4)
+
+Link.create([{url: 'https://www.usdebtclock.org/?fbclid=IwAR2ex31kGIAEjIRtwVCmecaumsmBeNjH1f4viVtjGFxG27rUxFAagX6ARAg', description: 'usa debt clock', postDate: Date.parse('2021-07-22')}])
+a8 = Link.last
+a8.linktags.create(tag_id: 1)
+a8.linktags.create(tag_id: 3)
+
+Link.create([{url: 'https://jamesclear.com/goal-setting', description: 'goal setting', postDate: Date.parse('2021-07-23')}])
+a9 = Link.last
+a9.linktags.create(tag_id: 3)
+
+Link.create([{url: 'https://direkris.itch.io/you-are-jeff-bezos', description: 'you are jeff bezos', postDate: Date.parse('2021-07-24')}])
+a10 = Link.last
+a10.linktags.create(tag_id: 5)
+a10.linktags.create(tag_id: 1)
+
+Link.create([{url: 'https://oncyber.io/dwr', description: '3d nft gallery', postDate: Date.parse('2021-07-25')}])
+a10 = Link.last
+a10.linktags.create(tag_id: 5)
+a10.linktags.create(tag_id: 1)
+
+
+
+
+
+
+
+# Link.create([{url: '', description: '', postDate: Date.parse('2021-07-14')}])
+# Link.create([{url: '', description: '', postDate: Date.parse('2021-07-14')}])
+# Link.create([{url: '', description: '', postDate: Date.parse('2021-07-14')}])
+# Link.create([{url: '', description: '', postDate: Date.parse('2021-07-14')}])
+# Link.create([{url: '', description: '', postDate: Date.parse('2021-07-14')}])
+# Link.create([{url: '', description: '', postDate: Date.parse('2021-07-14')}])
+
+
 # Next: 
 # https://youtu.be/dOoHArAzdug (free dive from space)
-# https://youtu.be/FAM1N1APk80 (maggie rogers debut)
 # https://youtu.be/ZnZqB5Z75zI (Quicksilver)
 # https://youtu.be/xh1ROLEDyP4 (eminem 8 mile)
 # https://youtu.be/OacVy8_nJi0 (koyaanisqatsi final scene)
@@ -69,23 +131,9 @@
 # https://twitter.com/TechEmails/status/1413534752699830275
 # https://twitter.com/TechEmails/status/1409916451729940480
 # https://twitter.com/TechEmails/status/1407016788240576512
-# https://youtu.be/c0pS3Zx7Fc8
-# https://youtu.be/Y2d2HLdBF88
-# https://youtu.be/gpZeHFDPaxQ
-# https://youtu.be/c_7_bQ7rAoc
 # https://youtu.be/FqWgTM4di4s (slap chop)
 # https://youtu.be/d6QXxMDp7Zg (278 days build a water park)
-# https://youtu.be/DY_zyLEiNYk (OG Tony Robbins)
 # https://www.youtube.com/watch?v=O5nskjZ_GoI&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo&index=3 (crash course in computer science... maybe used)
-# https://www.instagram.com/reel/CRcTGsJpI_U/?utm_medium=copy_link (stop motion tiktok)
-# https://youtu.be/NDW9zKqvPJI (Jocelyn Bell Burnell discovered pulsars)
-# https://www.datcreativity.com/ (verbal creativity test) - game
-# https://gail.com/ (gail dot come won't sell out)
-# https://www.instagram.com/reel/CRrVb6bHzZG/ (virtual marble machine)
-# https://www.usdebtclock.org/?fbclid=IwAR2ex31kGIAEjIRtwVCmecaumsmBeNjH1f4viVtjGFxG27rUxFAagX6ARAg (U.S. debt clock)
-# https://direkris.itch.io/you-are-jeff-bezos (you are jeff bezos)
 # https://youtu.be/SGUCcjHTmGY (openai's codex)
-# https://jamesclear.com/goal-setting
 # https://jamesclear.com/multitasking-myth
 # https://www.instagram.com/p/CS4n9jygn1D/?utm_medium=copy_link
-# https://oncyber.io/dwr
