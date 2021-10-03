@@ -121,7 +121,6 @@ a13.linktags.create(tag_id: 2)
 # Link.create([{url: '', description: '', postDate: Date.parse('2021-07-14')}])
 # Link.create([{url: '', description: '', postDate: Date.parse('2021-07-14')}])
 
-
 # Next: 
 # https://youtu.be/dOoHArAzdug (free dive from space)
 # https://youtu.be/ZnZqB5Z75zI (Quicksilver)
