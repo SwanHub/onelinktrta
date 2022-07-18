@@ -10,9 +10,6 @@ Build a simple Rails app through Heroku that utilizes a join table and is hosted
 
 ## Notes for the reader
 
-- I use `onelinktrta` everywhere when referring to my app, but you choose a different name! 
-- Note that when I include `$` at the start of a piece of code, that indicates a command in Terminal. Example: `$ git init`. 
-- To speed up development, open two terminals. One to run the server and one to access the console.
 
 [Picture]
 
